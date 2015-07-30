@@ -1,0 +1,31 @@
+// *************************************
+//
+//   GitHub Organization App
+//   -> Manifest
+//
+// *************************************
+
+// -------------------------------------
+//   Components
+//   -> Re-usable components throughout the app or across projects
+// -------------------------------------
+@import "components/organization";
+
+// -------------------------------------
+//   Structures
+//   -> Project/Page-specific styles
+// -------------------------------------
+
+
+// -------------------------------------
+//   Foundation - Tools
+//   -> Single-responsibility Utility classes
+// -------------------------------------
+@import "foundation/angular";
+@import "foundation/base";
+
+// -------------------------------------
+//   Inbox
+//   -> Temporary styles to be organized later
+// -------------------------------------
+

@@ -1,0 +1,29 @@
+.repo-sort-form {
+  margin-bottom: 1em;
+}
+
+.repo-item {
+  transition: all 250ms ease;
+  user-select: none;
+
+  &:hover {
+    background-color: #eee;
+  }
+
+  &:active {
+    background-color: #ccc;
+  }
+}
+
+.repo-name {
+  text-transform: uppercase;
+
+  small {
+    text-transform: none;
+  }
+}
+
+.repo-metric {
+  margin-right: 1em;
+  color: #444;
+}

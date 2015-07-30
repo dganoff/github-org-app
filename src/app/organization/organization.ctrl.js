@@ -13,6 +13,11 @@
     // Assign all bindable models:
     vm.getOrgRepos = getOrgRepos;
     vm.repos = [];
+    vm.sort = "stargazers_count";
+    vm.sortOptions = [
+      {label: "Stars", value: "stargazers_count"},
+      {label: "Forks", value: "forks_count"},
+    ];
 
     activate();
 

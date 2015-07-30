@@ -82,6 +82,18 @@ module.exports = function (grunt) {
           "<%= paths.tmp %>/styles/vendor.css": "<%= paths.src %>/styles/vendor/vendor.scss",
         }],
       },
+      app: {
+        files: [{
+          expand: true,
+          cwd: "<%= paths.src %>/styles",
+          src: ["{,*/}*.scss", "!vendor/**"],
+          dest: ".tmp/styles",
+          ext: ".css",
+        }],
+        options: {
+          style: "compressed",
+        },
+      }
     },
 
     // Automatically inject Bower components into the app

@@ -7,12 +7,13 @@
   <title>GitHub Org App</title>
   <!-- build:css(.tmp) styles/app.css -->
   <link rel="stylesheet" type="text/css" href="styles/vendor.css">
+  <link rel="stylesheet" type="text/css" href="styles/app.css">
   <!-- endbuild -->
 </head>
 <body>
-  <div class="container-fluid">
+  <div class="container-fluid app-container">
     <div class="row">
-      <div class="col-sm-6 col-sm-offset-3">
+      <div class="col-sm-12">
         <header>
           <h1>Netflix Organization</h1>
         </header>
@@ -32,6 +33,7 @@
   <!-- build:js(./src) app.js -->
   <script src="app/app.js"></script>
   <script src="app/app.config.js"></script>
+  <script src="app/app.run.js"></script>
 
   <script src="app/github/github.service.js"></script>
 

@@ -1,5 +1,18 @@
-<ul class="list-group">
-  <li class="list-group-item" ng-repeat="repo in vm.repos">
-    {{repo.name}} <span class="badge">{{repo.stargazers_count}}</span>
-  </li>
-</ul>
+<div class="org-container">
+  <form class="form-inline text-right repo-sort-form">
+    <div class="form-group">
+      <label for="sort">Sort By</label>
+      <select class="form-control" ng-model="vm.sort" ng-options="opt.value as opt.label for opt in vm.sortOptions"></select>
+    </div>
+  </form>
+
+  <ul class="list-group">
+    <li class="list-group-item repo-item" ng-click="vm.openRepo()" ng-repeat="repo in vm.repos | orderBy: vm.sort : true">
+      <h3 class="repo-name">{{repo.name}} <br><small>{{repo.description}}</small></h3>
+      <p>
+        <span class="repo-metric">Stars {{repo.stargazers_count | number}}</span>
+        <span class="repo-metric">Forks {{repo.forks_count | number}}</span>
+      </p>
+    </li>
+  </ul>
+</div>
