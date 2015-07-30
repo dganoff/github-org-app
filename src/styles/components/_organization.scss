@@ -23,7 +23,16 @@
   }
 }
 
+.repo-metrics {
+  float: right;
+  margin-top: 1em;
+}
+
 .repo-metric {
   margin-right: 1em;
   color: #444;
+
+  &:last-child {
+    margin-right: 0;
+  }
 }
