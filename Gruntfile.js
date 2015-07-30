@@ -23,6 +23,7 @@ module.exports = function (grunt) {
           "<%= paths.src %>/**/*.html",
           "<%= paths.src %>{,*/}*.css",
           "<%= paths.src %>/**/*.js",
+          "<%= paths.tmp %>/**/*.css",
         ],
         options: {
           livereload: true,
@@ -42,6 +43,11 @@ module.exports = function (grunt) {
         ],
         tasks: ["jshint:app"],
       },
+
+      sass: {
+        files: ["<%= paths.src %>/styles/**/*.scss"],
+        tasks: ["sass"]
+      }
     },
 
     connect: {
