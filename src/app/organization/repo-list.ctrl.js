@@ -3,10 +3,10 @@
 
   angular
     .module("app")
-    .controller("OrganizationCtrl", OrganizationCtrl);
+    .controller("RepoListCtrl", RepoListCtrl);
 
   /* @ngInject */
-  function OrganizationCtrl(GithubService) {
+  function RepoListCtrl(GithubService, $state) {
     /*jshint validthis: true */
     var vm = this;
 
@@ -18,6 +18,7 @@
       {label: "Stars", value: "stargazers_count"},
       {label: "Forks", value: "forks_count"},
     ];
+    vm.openRepo = openRepo;
 
     activate();
 
@@ -46,6 +47,14 @@
       function errorRepos (response) {
         console.log(response);
       }
+    }
+
+    function openRepo (repoName) {
+      /**
+       * Navigate to the provided Repository state
+       * @param {string} repoName The selected Repository
+       */
+      $state.go("org.repo", {repo: repoName});
     }
   }
 })();

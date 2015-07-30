@@ -1,15 +1,17 @@
 (function() {
   "use strict";
 
-  describe("OrganizationCtrl", function() {
+  describe("RepoListCtrl", function() {
     var ctrl,
-        GithubService;
+        GithubService,
+        $state;
 
     beforeEach(function() {
       inject(function(_$injector_) {
         GithubService = _$injector_.get("GithubService");
+        $state = _$injector_.get("$state");
       });
-      ctrl = $controller("OrganizationCtrl");
+      ctrl = $controller("RepoListCtrl");
     });
 
     describe("getOrgRepos", function() {
@@ -27,6 +29,17 @@
         ctrl.getOrgRepos();
         $rootScope.$apply();
         expect(GithubService.getOrgRepos).toHaveBeenCalled();
+      });
+    });
+
+    describe("openRepo", function() {
+      beforeEach(function() {
+        spyOn($state, "go").and.callThrough();
+      });
+
+      it("should transition to the org.repo state with the correct params", function() {
+        ctrl.openRepo("some repo");
+        expect($state.go).toHaveBeenCalledWith("org.repo", {repo: "some repo"});
       });
     });
   });

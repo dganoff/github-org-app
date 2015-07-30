@@ -10,6 +10,7 @@
     var service = {
       getOrgRepos: getOrgRepos,
       setHeaders: setHeaders,
+      getRepoCommits: getRepoCommits,
     };
 
     return service;
@@ -25,6 +26,29 @@
       var deferred = $q.defer();
 
       $http.get("https://api.github.com/orgs/" + org + "/repos")
+        .success(successCB)
+        .error(errorCB);
+
+      function successCB (response) {
+        deferred.resolve(response);
+      }
+
+      function errorCB (response) {
+        deferred.resolve(response);
+      }
+
+      return deferred.promise;
+    }
+
+    function getRepoCommits (repoName) {
+      /**
+       * Get the latest commits based on the provided Repository name
+       * @param {string} repoName The Repository name
+       * @returns {promise}
+       */
+      var deferred = $q.defer();
+
+      $http.get("https://api.github.com/repos/netflix/" + repoName + "/commits")
         .success(successCB)
         .error(errorCB);
 

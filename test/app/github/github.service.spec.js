@@ -44,5 +44,29 @@
         expect($http.defaults.headers.common.Accept).toEqual("application/vnd.github.v3+json");
       });
     });
+
+    describe("getRepoCommits", function() {
+      beforeEach(function() {
+        spyOn($http, "get").and.callFake(function() {
+          return {
+            success: function(cb) {
+              cb([]);
+              return { error: function() {} };
+            },
+          };
+        });
+      });
+
+      it("should have a getRepoCommits method", function() {
+        expect(service.getRepoCommits).toBeDefined();
+      });
+
+      it("should call the correct endpoint with the supplied Repository name", function() {
+        var repoName = "something";
+        service.getRepoCommits(repoName);
+        $rootScope.$apply();
+        expect($http.get).toHaveBeenCalledWith("https://api.github.com/repos/netflix/" + repoName + "/commits");
+      });
+    });
   });
 }());

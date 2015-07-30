@@ -15,4 +15,6 @@ beforeEach(function() {
     $http = _$injector_.get("$http");
     $q = _$injector_.get("$q");
   });
+
+  $httpBackend.whenGET(/app\/([a-zA-Z]*\/)*[a-zA-Z]*.html/).respond(200);
 });
