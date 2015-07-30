@@ -6,12 +6,13 @@
     .controller("RepositoryCtrl", RepositoryCtrl);
 
   /* @ngInject */
-  function RepositoryCtrl(commits) {
+  function RepositoryCtrl(commits, $stateParams) {
     /*jshint validthis: true */
     var vm = this;
 
     // Assign all bindable models:
     vm.commits = commits;
+    vm.repoName = $stateParams.repo;
 
     //////////
   }
