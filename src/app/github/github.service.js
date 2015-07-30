@@ -9,6 +9,7 @@
   function GithubService($q, $http) {
     var service = {
       getOrgRepos: getOrgRepos,
+      setHeaders: setHeaders,
     };
 
     return service;
@@ -36,6 +37,13 @@
       }
 
       return deferred.promise;
+    }
+
+    function setHeaders () {
+      /**
+       * Set the required headers for the GitHub API
+       */
+      $http.defaults.headers.common.Accept = "application/vnd.github.v3+json";
     }
   }
 })();

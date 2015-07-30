@@ -33,5 +33,16 @@
         expect($http.get).toHaveBeenCalledWith("https://api.github.com/orgs/" + org + "/repos");
       });
     });
+
+    describe("setHeaders", function() {
+      it("should have a setHeaders method", function() {
+        expect(service.setHeaders).toBeDefined();
+      });
+
+      it("should set the Accept header to the v3 API", function() {
+        service.setHeaders();
+        expect($http.defaults.headers.common.Accept).toEqual("application/vnd.github.v3+json");
+      });
+    });
   });
 }());
