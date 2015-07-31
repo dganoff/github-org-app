@@ -9,12 +9,13 @@
 //   Components
 //   -> Re-usable components throughout the app or across projects
 // -------------------------------------
-@import "components/organization";
+@import "components/logo";
 
 // -------------------------------------
 //   Structures
 //   -> Project/Page-specific styles
 // -------------------------------------
+@import "structures/organization";
 
 
 // -------------------------------------

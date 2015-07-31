@@ -1,3 +1,9 @@
 @import "../../../../bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap/_variables.scss";
 
 // Override any Bootstrap variables here:
+$brand-primary: #E50914;
+$text-color: #fff;
+$list-group-bg: lighten(black, 5);
+$list-group-border: lighten(black, 20);
+$breadcrumb-bg: lighten(black, 10);
+$breadcrumb-color: lighten(black, 30);
