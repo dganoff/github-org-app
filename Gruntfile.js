@@ -46,8 +46,8 @@ module.exports = function (grunt) {
 
       sass: {
         files: ["<%= paths.src %>/styles/**/*.scss"],
-        tasks: ["sass"]
-      }
+        tasks: ["sass", "postcss"],
+      },
     },
 
     connect: {
