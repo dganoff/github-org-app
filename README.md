@@ -20,3 +20,4 @@ Run `grunt serve` to build the app and start the local server at `http://localho
 ## Tests
 
 Run `grunt test` to run all unit tests.
+Run `grunt test:e2e` to run all integration tests.

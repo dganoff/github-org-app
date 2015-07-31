@@ -222,6 +222,7 @@ module.exports = function (grunt) {
     clean: {
       tmp: "<%= paths.tmp %>",
       dist: "<%= paths.dist %>",
+      coverage: "<%= paths.test %>/coverage",
     },
 
     "divshot:push": {
@@ -257,4 +258,12 @@ module.exports = function (grunt) {
     "jshint",
     "karma",
   ]);
+
+  grunt.registerTask("test", [
+    "clean:coverage",
+    "jshint:test",
+    "karma",
+  ]);
+
+  grunt.registerTask("test:e2e", ["protractor"]);
 };
