@@ -34,6 +34,13 @@
         expect(GithubService.getOrgRepos).toHaveBeenCalled();
         expect(ctrl.repos.length).toBeGreaterThan(0);
       });
+
+      it("should show the loading indicator when loading the Repositories", function() {
+        ctrl.getOrgRepos();
+        expect(ctrl.isLoadingRepos).toBe(true, "while loading initially");
+        $rootScope.$apply();
+        expect(ctrl.isLoadingRepos).toBe(false, "after loading");
+      });
     });
 
     describe("openRepo", function() {

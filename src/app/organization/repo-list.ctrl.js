@@ -19,6 +19,7 @@
       {label: "Forks", value: "forks_count"},
     ];
     vm.openRepo = openRepo;
+    vm.isLoadingRepos = false;
 
     activate();
 
@@ -37,15 +38,18 @@
        * in a GitHub Organization
        * @param {string} org The Organization to look up
        */
+      vm.isLoadingRepos = true;
+
       GithubService.getOrgRepos(org)
         .then(gotRepos, errorRepos);
 
       function gotRepos (response) {
+        vm.isLoadingRepos = false;
         vm.repos = response;
       }
 
-      function errorRepos (response) {
-        console.log(response);
+      function errorRepos () {
+        vm.isLoadingRepos = false;
       }
     }
 
