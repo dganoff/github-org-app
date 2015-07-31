@@ -7,7 +7,7 @@
 
 <ul class="list-group">
   <li class="list-group-item" ng-repeat="commit in vm.commits | orderBy: commit.committer.date">
-    <small class="text-muted">{{commit.commit.committer.date | date}}</small>
+    <small class="text-muted">{{commit.commit.committer.date | date}} - <em>by {{commit.committer.login || commit.commit.author.name}}</em></small>
     <p><a ng-href="{{commit.html_url}}">{{commit.commit.message}}</a></p>
   </li>
 </ul>
