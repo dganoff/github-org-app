@@ -22,7 +22,7 @@ module.exports = function(config) {
 
       // test files:
       "test/support/specHelper.js",
-      "test/**/*.spec.js",
+      "test/app/**/*.spec.js",
     ],
 
     // list of files to exclude

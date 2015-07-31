@@ -212,6 +212,13 @@ module.exports = function (grunt) {
       }
     },
 
+    protractor: {
+      options: {
+        configFile: "e2e.conf.js",
+      },
+      all: {},
+    },
+
     clean: {
       tmp: "<%= paths.tmp %>",
       dist: "<%= paths.dist %>",

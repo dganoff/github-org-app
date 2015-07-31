@@ -7,6 +7,7 @@ To get started:
 
     $ npm install
     $ bower install
+    $ node_modules/protractor/bin/webdriver-manager update
 
 This will get you the necessary node and bower packages to do everything
 within this project. It's recommended that you install the grunt-cli globally

@@ -106,6 +106,9 @@
       "$q",                     // specHelper global
       "$http",                  // specHelper global
       "$httpBackend",           // specHelper global
-      "$rootScope"              // specHelper global
+      "$rootScope",              // specHelper global
+      "browser",
+      "element",
+      "by"
     ]        // additional predefined global variables
 }
