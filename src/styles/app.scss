@@ -6,6 +6,14 @@
 // *************************************
 
 // -------------------------------------
+//   Foundation - Tools
+//   -> Single-responsibility Utility classes
+// -------------------------------------
+@import "foundation/animations";
+@import "foundation/base";
+@import "foundation/angular";
+
+// -------------------------------------
 //   Components
 //   -> Re-usable components throughout the app or across projects
 // -------------------------------------
@@ -16,14 +24,6 @@
 //   -> Project/Page-specific styles
 // -------------------------------------
 @import "structures/organization";
-
-
-// -------------------------------------
-//   Foundation - Tools
-//   -> Single-responsibility Utility classes
-// -------------------------------------
-@import "foundation/angular";
-@import "foundation/base";
 
 // -------------------------------------
 //   Inbox

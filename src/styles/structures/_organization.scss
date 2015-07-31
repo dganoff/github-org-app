@@ -6,6 +6,19 @@
   transition: all 150ms ease;
   user-select: none;
 
+  &.ng-enter {
+    animation: fadeIn 1000ms ease;
+  }
+
+  &.ng-enter-stagger {
+    animation-delay: 75ms;
+    animation-duration: 0;
+  }
+
+  &.ng-move {
+    animation: fadeIn 1000ms ease;
+  }
+
   &:hover {
     background-color: lighten(black, 10);
   }
