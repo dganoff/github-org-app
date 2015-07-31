@@ -18,7 +18,10 @@
       beforeEach(function() {
         spyOn(GithubService, "getOrgRepos").and.callFake(function() {
           var deferred = $q.defer();
-          deferred.resolve([]);
+          deferred.resolve([
+            {name: "first repo"},
+            {name: "second repo"},
+          ]);
           return deferred.promise;
         });
 
@@ -29,6 +32,7 @@
         ctrl.getOrgRepos();
         $rootScope.$apply();
         expect(GithubService.getOrgRepos).toHaveBeenCalled();
+        expect(ctrl.repos.length).toBeGreaterThan(0);
       });
     });
 
