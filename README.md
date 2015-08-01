@@ -26,3 +26,5 @@ Run `grunt test:e2e` to run all integration tests.
 
 Run `grunt build` to build the application into the `dist` directory for
 distribution.
+
+[Dev App](http://development.github-org-app.divshot.io)
