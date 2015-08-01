@@ -1,4 +1,4 @@
-GitHub Repository App
+GitHub Organization App
 ===================
 
 ## Setup
