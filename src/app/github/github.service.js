@@ -1,9 +1,11 @@
-(function() {
-  "use strict";
+"use strict";
 
-  angular
-    .module("app")
-    .factory("GithubService", GithubService);
+module.exports = function (ngModule) {
+  if (ON_TEST) {
+    require("./github.service.spec.js")(ngModule);
+  }
+
+  ngModule.factory("GithubService", GithubService);
 
   /* @ngInject */
   function GithubService($q, $http) {
@@ -70,4 +72,4 @@
       $http.defaults.headers.common.Accept = "application/vnd.github.v3+json";
     }
   }
-})();
+};

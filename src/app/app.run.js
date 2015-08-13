@@ -1,9 +1,7 @@
-(function() {
-  "use strict";
+"use strict";
 
-  angular
-    .module("app")
-    .run(run);
+module.exports = function (ngModule) {
+  ngModule.run(run);
 
   /* @ngInject */
   function run(GithubService, $rootScope) {
@@ -25,4 +23,4 @@
       });
     }
   }
-})();
+};

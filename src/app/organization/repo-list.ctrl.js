@@ -1,9 +1,11 @@
-(function() {
-  "use strict";
+"use strict";
 
-  angular
-    .module("app")
-    .controller("RepoListCtrl", RepoListCtrl);
+module.exports = function (ngModule) {
+  if (ON_TEST) {
+    require("./repo-list.ctrl.spec.js")(ngModule);
+  }
+
+  ngModule.controller("RepoListCtrl", RepoListCtrl);
 
   /* @ngInject */
   function RepoListCtrl(GithubService, $state) {
@@ -61,4 +63,4 @@
       $state.go("org.repo", {repo: repoName});
     }
   }
-})();
+};

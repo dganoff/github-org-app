@@ -1,12 +1,18 @@
-(function() {
-  "use strict";
+"use strict";
 
+module.exports = function (ngModule) {
   describe("GithubService", function() {
-    var service;
+    var service,
+        $rootScope,
+        $http;
 
     beforeEach(function() {
+      window.module(ngModule.name);
+
       inject(function(_$injector_) {
         service = _$injector_.get("GithubService");
+        $rootScope = _$injector_.get("$rootScope");
+        $http = _$injector_.get("$http");
       });
     });
 
@@ -69,4 +75,4 @@
       });
     });
   });
-}());
+};

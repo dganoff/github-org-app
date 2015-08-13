@@ -1,10 +1,17 @@
-(function() {
-  "use strict";
+"use strict";
 
+module.exports = function (ngModule) {
   describe("RepositoryCtrl", function() {
-    var ctrl;
+    var ctrl,
+        $controller;
 
     beforeEach(function() {
+      window.module(ngModule.name);
+
+      inject(function(_$injector_) {
+        $controller = _$injector_.get("$controller");
+      });
+
       ctrl = $controller("RepositoryCtrl", {
         commits: [],
         $stateParams: {
@@ -23,4 +30,4 @@
       });
     });
   });
-}());
+};

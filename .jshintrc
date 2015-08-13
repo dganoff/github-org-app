@@ -83,10 +83,7 @@
 
     // Custom Globals
     "predef"        : [
-      "angular",                // angularjs
-      "require",                // require.js
-      "requirejs",              // require.js
-      "define",                 // require.js
+      "ON_TEST",                // webpack plugin definition
       "it",                     // jasmine/mocha/chai
       "xit",                    // jasmine/mocha/chai
       "expect",                 // jasmine/mocha/chai

@@ -1,9 +1,11 @@
-(function() {
-  "use strict";
+"use strict";
 
-  angular
-    .module("app")
-    .controller("RepositoryCtrl", RepositoryCtrl);
+module.exports = function (ngModule) {
+  if (ON_TEST) {
+    require("./repository.ctrl.spec.js")(ngModule);
+  }
+
+  ngModule.controller("RepositoryCtrl", RepositoryCtrl);
 
   /* @ngInject */
   function RepositoryCtrl(commits, $stateParams) {
@@ -16,4 +18,4 @@
 
     //////////
   }
-})();
+};

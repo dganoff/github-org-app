@@ -1,14 +1,24 @@
-(function() {
-  "use strict";
+"use strict";
 
+module.exports = function (ngModule) {
   describe("RepoListCtrl", function() {
     var ctrl,
+        $controller,
         GithubService,
+        $rootScope,
+        $httpBackend,
+        $q,
         $state;
 
     beforeEach(function() {
+      window.module(ngModule.name);
+
       inject(function(_$injector_) {
         GithubService = _$injector_.get("GithubService");
+        $controller = _$injector_.get("$controller");
+        $rootScope = _$injector_.get("$rootScope");
+        $httpBackend = _$injector_.get("$httpBackend");
+        $q = _$injector_.get("$q");
         $state = _$injector_.get("$state");
       });
       ctrl = $controller("RepoListCtrl");
@@ -54,4 +64,4 @@
       });
     });
   });
-}());
+};
