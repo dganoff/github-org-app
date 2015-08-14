@@ -21,3 +21,11 @@ Run `npm start` to bundle the app with webpack and start the webpack-dev-server 
 Run `npm test` to run all unit tests.
 
 [Dev App](http://development.github-org-app.divshot.io)
+
+## To Do
+- [ ] Update E2E tests to accommodate webpack changes
+- [ ] Add code-splitting by route to ensure minimum asset downloads throughout the app
+- [ ] Use `webpack.ensure` to load code-split files as necessary
+- [ ] Create dynamic webpack configs based on `NODE_ENV` (i.e. uglify JS for production)
+- [ ] Update webpack build with postCSS or some other way of vendor prefixing the CSS
+- [ ] Add ngAnnotate loader for all JS files
