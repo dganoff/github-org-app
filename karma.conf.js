@@ -17,7 +17,10 @@ module.exports = function(config) {
     frameworks: ["jasmine"],
 
     // list of files / patterns to load in the browser
-    files: [entry],
+    files: [
+      "./node_modules/phantomjs-polyfill/bind-polyfill.js",
+      entry,
+    ],
     webpack: webpackConfig,
 
     // list of files to exclude
