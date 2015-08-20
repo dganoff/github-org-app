@@ -71,7 +71,7 @@ module.exports = function (ngModule) {
         var repoName = "something";
         service.getRepoCommits(repoName);
         $rootScope.$apply();
-        expect($http.get).toHaveBeenCalledWith("https://api.github.com/repos/netflix/" + repoName + "/commits");
+        expect($http.get).toHaveBeenCalledWith("https://api.github.com/repos/intridea/" + repoName + "/commits");
       });
     });
   });

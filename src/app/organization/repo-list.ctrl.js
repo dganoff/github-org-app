@@ -31,7 +31,7 @@ module.exports = function (ngModule) {
       /**
        * Kick off the controller
        */
-      getOrgRepos("netflix");
+      getOrgRepos("intridea");
     }
 
     function getOrgRepos (org) {

@@ -36,7 +36,7 @@ module.exports = function (ngModule) {
       }
 
       function errorCB (response) {
-        deferred.resolve(response);
+        deferred.reject(response);
       }
 
       return deferred.promise;
@@ -50,7 +50,7 @@ module.exports = function (ngModule) {
        */
       var deferred = $q.defer();
 
-      $http.get("https://api.github.com/repos/netflix/" + repoName + "/commits")
+      $http.get("https://api.github.com/repos/intridea/" + repoName + "/commits")
         .success(successCB)
         .error(errorCB);
 
@@ -59,7 +59,7 @@ module.exports = function (ngModule) {
       }
 
       function errorCB (response) {
-        deferred.resolve(response);
+        deferred.reject(response);
       }
 
       return deferred.promise;
