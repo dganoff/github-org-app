@@ -6,3 +6,4 @@ dist
 test/coverage
 .divshot-cache
 npm-debug.log
+coverage

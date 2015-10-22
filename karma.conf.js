@@ -6,6 +6,11 @@ var entry = path.resolve(webpackConfig.context, webpackConfig.entry);
 var preprocessors = {};
 preprocessors[entry] = ["webpack"];
 
+// Update the webpack config to include the loader for 'istanbul-instrumenter'
+webpackConfig.module.preLoaders = [
+  {test: /\.js$/, include: path.resolve("./src/app/"), loader: "istanbul-instrumenter"}
+];
+
 module.exports = function(config) {
   config.set({
 
@@ -34,21 +39,21 @@ module.exports = function(config) {
     // test results reporter to use
     // possible values: "dots", "progress"
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-    reporters: ["mocha"],
+    reporters: ["mocha", "coverage"],
 
-    // coverageReporter: {
-    //   reporters: [{
-    //     type: "text-summary",
-    //   }, {
-    //     type: "json",
-    //     dir: "test/coverage",
-    //     subdir: "json",
-    //   }, {
-    //     type: "html",
-    //     dir: "test/coverage",
-    //     subdir: "html",
-    //   }],
-    // },
+    coverageReporter: {
+      reporters: [{
+        type: "text-summary",
+      }, {
+        type: "json",
+        dir: "test/coverage",
+        subdir: "json",
+      }, {
+        type: "html",
+        dir: "test/coverage",
+        subdir: "html",
+      }],
+    },
 
     // web server port
     port: 9876,
@@ -65,7 +70,7 @@ module.exports = function(config) {
 
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-    browsers: ["PhantomJS", "Chrome"],
+    browsers: ["PhantomJS"],
 
     // Continuous Integration mode
     // if true, Karma captures browsers, runs the tests and exits
@@ -76,6 +81,7 @@ module.exports = function(config) {
       "karma-chrome-launcher",
       "karma-phantomjs-launcher",
       "karma-mocha-reporter",
+      "karma-coverage",
       "karma-jasmine",
     ]
   });

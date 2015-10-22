@@ -6,6 +6,7 @@
 </form>
 
 <div class="loader" ng-show="vm.isLoadingRepos"></div>
+
 <ul class="list-group">
   <li class="list-group-item repo-item" ng-click="vm.openRepo(repo.name)" ng-repeat="repo in vm.repos | orderBy: vm.sort : true">
     <span class="repo-metrics">
