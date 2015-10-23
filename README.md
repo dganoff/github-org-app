@@ -9,18 +9,20 @@ To get started:
     $ bower install
     $ node_modules/protractor/bin/webdriver-manager update
 
-This will get you the necessary node and bower packages to do everything
-within this project.
-
 ## Local Development
 
-Run `npm start` to bundle the app with webpack and start the webpack-dev-server at `http://localhost:8080`.
+Run `npm start` to build the app and start the local server at `http://localhost:8080/webpack-dev-server/`.
 
 ## Tests
 
 Run `npm test` to run all unit tests.
+Run `npm run test:watch` to run all unit tests and re-run on changes.
+Run `npm run test:e2e` to run all integration tests.
 
-[Dev App](http://development.github-org-app.divshot.io)
+## Build For Deployment
+
+Run `npm run build` to build the application into the `dist` directory for
+distribution.
 
 ## To Do
 - [x] Update E2E tests to accommodate webpack changes
