@@ -1,6 +1,6 @@
 "use strict";
 
-module.exports = function (ngModule) {
+export default function (ngModule) {
   describe("RepositoryCtrl", function() {
     var ctrl,
         $controller;
@@ -30,4 +30,4 @@ module.exports = function (ngModule) {
       });
     });
   });
-};
+}

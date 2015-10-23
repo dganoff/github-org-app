@@ -6,11 +6,6 @@ var entry = path.resolve(webpackConfig.context, webpackConfig.entry);
 var preprocessors = {};
 preprocessors[entry] = ["webpack"];
 
-// Update the webpack config to include the loader for 'istanbul-instrumenter'
-webpackConfig.module.preLoaders = [
-  {test: /\.js$/, include: path.resolve("./src/app/"), loader: "istanbul-instrumenter"}
-];
-
 module.exports = function(config) {
   config.set({
 

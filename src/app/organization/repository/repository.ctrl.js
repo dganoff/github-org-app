@@ -1,6 +1,6 @@
 "use strict";
 
-module.exports = function (ngModule) {
+export default function (ngModule) {
   if (ON_TEST) {
     require("./repository.ctrl.spec.js")(ngModule);
   }
@@ -15,7 +15,5 @@ module.exports = function (ngModule) {
     // Assign all bindable models:
     vm.commits = commits;
     vm.repoName = $stateParams.repo;
-
-    //////////
   }
-};
+}

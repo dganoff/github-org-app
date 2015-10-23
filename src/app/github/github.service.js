@@ -1,6 +1,6 @@
 "use strict";
 
-module.exports = function (ngModule) {
+export default function (ngModule) {
   if (ON_TEST) {
     require("./github.service.spec.js")(ngModule);
   }
@@ -72,4 +72,4 @@ module.exports = function (ngModule) {
       $http.defaults.headers.common.Accept = "application/vnd.github.v3+json";
     }
   }
-};
+}

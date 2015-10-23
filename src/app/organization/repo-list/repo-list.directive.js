@@ -1,16 +1,13 @@
 "use strict";
 
-var RepoListCtrl = require("./repo-list.js");
-
-module.exports = function (ngModule) {
+export default function (ngModule) {
   ngModule.directive("repoList", function() {
     return {
       restrict: "E",
       bindToController: true,
       scope: {},
-      controller: RepoListCtrl,
-      controllerAs: "vm",
+      controller: "RepoListCtrl as vm",
       template: require("./repo-list.html"),
     };
   });
-};
+}

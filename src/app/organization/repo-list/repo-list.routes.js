@@ -1,6 +1,6 @@
 "use strict";
 
-module.exports = function (ngModule) {
+export default function (ngModule) {
   ngModule.config(configure);
 
   /* @ngInject */
@@ -11,4 +11,4 @@ module.exports = function (ngModule) {
         template: "<repo-list></repo-list>",
       });
   }
-};
+}

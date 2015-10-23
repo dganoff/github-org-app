@@ -1,6 +1,6 @@
 "use strict";
 
-module.exports = function (ngModule) {
+export default function (ngModule) {
   describe("GithubService", function() {
     var service,
         $rootScope,
@@ -75,4 +75,4 @@ module.exports = function (ngModule) {
       });
     });
   });
-};
+}

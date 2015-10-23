@@ -1,16 +1,27 @@
 "use strict";
 
-var RepoList = require("./repo-list.js");
-
-module.exports = function () {
-  describe("<repo-list> Component", function() {
-    var component,
+export default function (ngModule) {
+  describe("<repo-list> Directive", function() {
+    var ctrl,
         GithubService,
+        $controller,
         $state;
 
     beforeEach(function() {
-      GithubService = {
-        getOrgRepos: function() {
+      window.module(ngModule.name);
+
+      inject(function(_$injector_) {
+        GithubService = _$injector_.get("GithubService");
+        $state = _$injector_.get("$state");
+        $controller = _$injector_.get("$controller");
+      });
+
+      ctrl = $controller("RepoListCtrl");
+    });
+
+    describe("getOrgRepos", function() {
+      beforeEach(function() {
+        spyOn(GithubService, "getOrgRepos").and.callFake(function() {
           return {
             then: function(cb) {
               cb([
@@ -19,25 +30,13 @@ module.exports = function () {
               ]);
             }
           };
-        }
-      };
-
-      $state = {
-        go: function(){},
-      };
-
-      component = new RepoList(GithubService, $state);
-    });
-
-    describe("getOrgRepos", function() {
-      beforeEach(function() {
-        spyOn(GithubService, "getOrgRepos").and.callThrough();
+        });
       });
 
       it("should call the service to get the Organization Repositories", function() {
-        component.getOrgRepos("test org");
+        ctrl.getOrgRepos("test org");
         expect(GithubService.getOrgRepos).toHaveBeenCalledWith("test org");
-        expect(component.repos.length).toBeGreaterThan(0);
+        expect(ctrl.repos.length).toBeGreaterThan(0);
       });
     });
 
@@ -47,9 +46,9 @@ module.exports = function () {
       });
 
       it("should transition to the org.repo state with the correct params", function() {
-        component.openRepo("some repo");
+        ctrl.openRepo("some repo");
         expect($state.go).toHaveBeenCalledWith("org.repo", {repo: "some repo"});
       });
     });
   });
-};
+}

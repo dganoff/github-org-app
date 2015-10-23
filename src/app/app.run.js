@@ -1,6 +1,6 @@
 "use strict";
 
-module.exports = function (ngModule) {
+export default function (ngModule) {
   ngModule.run(run);
 
   /* @ngInject */
@@ -23,4 +23,4 @@ module.exports = function (ngModule) {
       });
     }
   }
-};
+}

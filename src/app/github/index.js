@@ -1,5 +1,5 @@
 "use strict";
 
-module.exports = function (ngModule) {
+export default function (ngModule) {
   require("./github.service.js")(ngModule);
-};
+}
