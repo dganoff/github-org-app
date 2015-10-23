@@ -5,6 +5,7 @@ var APP = __dirname + "/src/app";
 var context = process.env.NODE_ENV || "dev";
 var _ = require("lodash");
 var exclude = /node_modules/;
+var autoprefixer = require('autoprefixer');
 
 var configFns = {
   dev: getDevConfig,
@@ -31,10 +32,13 @@ function getDevConfig () {
         getJavaScriptLoaders(),
         [
           {test: /\.html$/, loader: "html-loader"},
-          {test: /\.scss$/, loader: "style!css!sass"},
+          {test: /\.scss$/, loader: "style!css!postcss!sass"},
           {test: /\.(svg|png|gif|jpg)$/, loader: "url-loader?limit=8192"},
         ]
       )
+    },
+    postcss: function () {
+      return [autoprefixer({ browsers: ["last 1 version"] })];
     },
     plugins: [
       new webpack.DefinePlugin({
