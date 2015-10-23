@@ -1,7 +1,7 @@
 "use strict";
 
 var Repository = function () {
-  browser.get("#/org/repo/Hystrix");
+  browser.get("#/org/repo/omniauth");
 };
 
 Repository.prototype = Object.create({}, {

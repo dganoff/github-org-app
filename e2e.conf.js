@@ -10,7 +10,7 @@ exports.config = {
     specPath + "/**/*.spec.js"
   ],
 
-  baseUrl: "http://localhost:9000",
+  baseUrl: "http://localhost:8080",
   seleniumServerJar: "node_modules/protractor/selenium/selenium-server-standalone-2.45.0.jar",
   chromeDriver: "node_modules/protractor/selenium/chromedriver",
 
@@ -19,7 +19,6 @@ exports.config = {
   },
 
   onPrepare: function() {
-    return browser.get("http://localhost:9000");
+    return browser.get("http://localhost:8080");
   }
-
 };
