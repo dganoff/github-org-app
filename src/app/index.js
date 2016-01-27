@@ -11,7 +11,7 @@ import Organization from "./organization";
 
 // Create application:
 angular.module("app", [
-  // Core application modules:
+  // Global modules:
   Core.name,
 
   // Feature areas:
