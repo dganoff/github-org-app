@@ -2,7 +2,7 @@
 
 var webpack = require("webpack");
 var APP = __dirname + "/src/app";
-var context = process.env.NODE_ENV || "dev";
+var ENV = process.env.NODE_ENV || "dev";
 var _ = require("lodash");
 var exclude = /node_modules/;
 var autoprefixer = require('autoprefixer');
@@ -13,7 +13,8 @@ var configFns = {
   prod: getProdConfig,
 };
 
-var config = configFns[context]();
+// Generate the config based on the environment
+var config = configFns[ENV]();
 
 module.exports = config;
 
@@ -29,7 +30,7 @@ function getDevConfig () {
     },
     module: {
       loaders: _.union(
-        getJavaScriptLoaders(),
+        getJavaScriptLoaders(ENV),
         [
           {test: /\.html$/, loader: "html-loader"},
           {test: /\.scss$/, loader: "style!css!postcss!sass"},
@@ -52,18 +53,19 @@ function getDevConfig () {
 }
 
 function getProdConfig () {
-  var config = getDevConfig();
+  var prodConfig = getDevConfig(); // use dev config as base
 
-  config.output.path = __dirname + "/dist";
-  config.plugins.push(new webpack.optimize.UglifyJsPlugin());
-  config.devtool = "source-map";
+  prodConfig.output.path = __dirname + "/dist";
+  prodConfig.plugins.push(new webpack.optimize.UglifyJsPlugin());
+  prodConfig.devtool = "source-map";
 
-  return config;
+  return prodConfig;
 }
 
-function getJavaScriptLoaders() {
+function getJavaScriptLoaders(environment) {
   /**
-   * Load the JS loaders for either the dev or test environment
+   * Generate the JavaScript loaders array based on the environment
+   * @param {string} environment The current build environment
    * @private
    */
   var loaders = {
@@ -72,10 +74,10 @@ function getJavaScriptLoaders() {
     prod: ["ng-annotate", "babel", "eslint"]
   };
 
-  var contextLoaders = loaders[context];
+  var contextLoaders = loaders[environment];
 
-  if (context.indexOf("test") === -1 && process.env.COVERAGE !== "true") {
-    return [ { test: /\.js$/, loaders: contextLoaders, exclude: exclude } ];
+  if (environment.indexOf("test") === -1 && process.env.COVERAGE !== "true") {
+    return [{ test: /\.js$/, loaders: contextLoaders, exclude: exclude }];
   } else {
     return [
       { test: /\.spec\.js$|\.mock\.js$/, loaders: contextLoaders, exclude: exclude },
