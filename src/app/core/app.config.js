@@ -1,6 +1,6 @@
 "use strict";
 
-export default function (ngModule) {
+export default ngModule => {
   ngModule.config(configure);
 
   /* @ngInject */
@@ -9,4 +9,4 @@ export default function (ngModule) {
     $urlRouterProvider
       .otherwise("/org/list");
   }
-}
+};

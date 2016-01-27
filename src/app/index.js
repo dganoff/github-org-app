@@ -1,19 +1,22 @@
 // Vendor files:
-const angular = require("angular");
-const uiRouter = require("angular-ui-router");
-const ngAnimate = require("angular-animate");
-
-var ngModule = angular.module("app", [uiRouter, ngAnimate]);
+import angular from "angular";
 
 if (ON_TEST) {
   require("angular-mocks/angular-mocks.js");
 }
 
-// Bootstrap the application with the created Angular module:
-require("./app.config.js")(ngModule);
-require("./app.run.js")(ngModule);
-require("./github")(ngModule);
-require("./organization")(ngModule);
+// App files:
+import Core from "./core";
+import Organization from "./organization";
+
+// Create application:
+angular.module("app", [
+  // Core application modules:
+  Core.name,
+
+  // Feature areas:
+  Organization.name,
+]);
 
 // Inject global styles:
 require("../styles/vendor/vendor.scss");
