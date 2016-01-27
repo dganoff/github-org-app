@@ -178,6 +178,7 @@
     "require": false,
     "__filename": false,
     "process": false,
-    "ON_TEST": false
+    "ON_TEST": false,
+    "exports": false
   }
 }
